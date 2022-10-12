@@ -11,6 +11,7 @@ Console.WriteLine();
 
 Console.WriteLine("Info over het object auto van de klasse Auto:");
 Console.WriteLine(auto.AsText());
+Console.WriteLine(auto.Talk());
 Console.WriteLine();
 
 Console.WriteLine("Info over het object vliegtuig van de klasse Vliegtuig:");
@@ -23,40 +24,34 @@ Console.ReadKey();
 
 class Voertuig
 {
-    public int wielen { get; set; }
-    public bool KanVliegen { get; set; }
-    public bool KanVaren { get; set; }
+    public int wielen = 0; 
+    public bool kanVliegen = false; 
+    public bool kanVaren = false; 
 
     public string AsText()
     {
         string vliegen = "kan niet vliegen";
-        if (KanVliegen)
+        if (kanVliegen)
         {
             vliegen = "kan vliegen";
-
         }
+
         string varen = "kan niet varen";
-        if (KanVaren)
+        if (kanVaren)
         {
             varen = "kan varen";
-
         }
-        return "dit voertuig heeft " + wielen + " wielen, " + vliegen + " en " + varen;
 
+        return "dit voertuig heeft " + wielen + " wielen, " + vliegen + " en " + varen;
     }
 
 }
 
 class Auto : Voertuig
 {
-
-
     public Auto()
     {
         wielen = 4;
-        KanVliegen = false;
-        KanVaren = false;
-
     }
 
     public string Talk()
@@ -66,31 +61,18 @@ class Auto : Voertuig
 }
 class Vliegtuig : Voertuig
 {
-
-
     public Vliegtuig()
     {
         wielen = 6;
-        KanVliegen = true;
-        KanVaren = false;
-
+        kanVliegen = true;
     }
-
-
 }
 class Boot : Voertuig
 {
-
-
     public Boot()
     {
-        wielen = 0;
-        KanVliegen = false;
-        KanVaren = true;
-
+        kanVaren = true;
     }
-
-
 }
 
 
